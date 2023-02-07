@@ -62,15 +62,20 @@ public class TaskOne
 			}
 			
 			
-			System.out.println("String is: "+inputString);
-			
+			//System.out.println("String is: "+inputString);
+			pstmt.setString(1, inputString);
 			
 			if(data[0] + data[1] + data[2] == 0 && data[0] != data[1] && data[1] != data[2])
 			{
+				result += "["+ data[0] + ", " +data[1]+", " + data[2]+ "]";
+				pstmt.setString(2, result);
+				
 				System.out.println("Pair is: ["+ data[0] + ", " +data[1]+", " + data[2]+ "]");
 			}
 			else
 			{
+				result += "No triplets found for matching condition for the given input";
+				pstmt.setString(2, result);
 				System.out.println("No triplets found for matching condition for the given input");
 			}
 		}
